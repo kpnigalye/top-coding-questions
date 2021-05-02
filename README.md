@@ -46,7 +46,7 @@ console.log(findSumOfTwo([5, 2, 8, 4], 13));
 ```
 
 3. Merge two sorted lists
-checkout the problem on [leetcode](https://leetcode.com/problems/merge-two-sorted-lists/)
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/merge-two-sorted-lists/)
 
 ```python
 # Definition for singly-linked list.
@@ -67,4 +67,31 @@ class Solution(object):
             cur = cur.next
         cur.next = l1 or l2
         return head.next
+```
+
+4. Reverse words in a string
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/reverse-words-in-a-string/)
+```python
+def reverseWords(s):
+    word = ''
+    words = []
+    
+    for letter in s:
+        if letter == ' ':
+            if word != '':
+                words.append(word)
+                word = ''
+        else:
+            word = word + letter
+
+    if word != '':
+        words.append(word)
+
+    s = ''
+    while len(words) > 0:
+        s = s + words.pop()
+        if len(words) > 0:
+            s = s + ' '
+
+    return s
 ```
