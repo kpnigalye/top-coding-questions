@@ -128,3 +128,32 @@ public class Solution {
 }
 ```
 
+6. Single Number
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/single-number/)
+
+```csharp
+public class Solution {
+    public int SingleNumber(int[] nums) {
+      // number-> key
+      // occurance -> value
+      Dictionary<int, int> dict = new Dictionary<int, int>();
+      int unique = -1;
+      
+      for(int i=0; i <nums.Length; i++) {
+        if(dict.ContainsKey(nums[i])) {
+          dict[nums[i]] += 1;
+        } else {
+          dict[nums[i]] = 1;
+        }
+      }
+      
+      foreach(var item in dict) {
+        if(item.Value == 1) {
+          unique = item.Key;
+          break;
+        }
+      }
+      return unique;
+    }
+}
+```
