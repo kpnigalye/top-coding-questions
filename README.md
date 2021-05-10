@@ -172,3 +172,30 @@ public class Solution {
     }
 }
 ```
+
+8. Robort return to Origin
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/robot-return-to-origin/)
+```csharp
+public class Solution {
+    public bool JudgeCircle(string moves) {
+      if( moves.Length < 1 && (moves.Length > 2 * Math.Pow(10, 4)))
+        return false;
+      
+      int x = 0, y = 0;
+      for(int i = 0; i < moves.Length; i++) {
+        switch(moves[i]) {
+          case 'L': x -= 1;
+            break;
+          case 'R': x += 1;
+            break;
+          case 'U': y += 1;
+            break;
+          case 'D': y -= 1;
+            break;
+          default: break;
+        }
+      }
+      return x == 0 && y ==0;
+    }
+}
+```
