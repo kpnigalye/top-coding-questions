@@ -199,3 +199,19 @@ public class Solution {
     }
 }
 ```
+
+9. Missing Number
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/missing-number/)
+```csharp
+public class Solution {
+    public int MissingNumber(int[] nums) {
+      int len = nums.Length;
+      int expectedSum = (len * (len + 1))/2;
+      int sum = 0;
+      for(int i =0; i<len;i++) {
+        sum += nums[i];
+      }
+      return expectedSum - sum;
+    }
+}
+```
