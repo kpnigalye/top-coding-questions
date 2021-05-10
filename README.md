@@ -98,7 +98,7 @@ def reverseWords(s):
 
 5. Find first non-recurring character in a string 
 - Here is the link to the problem on [leetcode](https://leetcode.com/problems/first-unique-character-in-a-string/)
-```
+```csharp
 public class Solution {
     public int FirstUniqChar(string s) {
       if(s.Length < 1 || s.Length > Math.Pow(10, 5))
