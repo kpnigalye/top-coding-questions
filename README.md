@@ -95,3 +95,36 @@ def reverseWords(s):
 
     return s
 ```
+
+5. Find first non-recurring character in a string 
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/first-unique-character-in-a-string/)
+```
+public class Solution {
+    public int FirstUniqChar(string s) {
+      if(s.Length < 1 || s.Length > Math.Pow(10, 5))
+        return -1;
+      else {
+        // char -> key 
+        // position -> value
+        Dictionary<char, int> dict = new Dictionary<char, int>();
+        for(int i = 0; i < s.Length; i++) {
+          if(!dict.ContainsKey(s[i])) {
+            dict[s[i]] = i;
+          } else {
+            dict[s[i]] = -1;  // duplicate
+          }
+        }
+        
+        int minIndex = Int32.MaxValue;
+        foreach(var item in dict) {
+          if (item.Value != -1 && item.Value < minIndex) {
+            minIndex = item.Value;
+          }
+        }
+        
+        return minIndex == Int32.MaxValue ? -1 : minIndex;
+      }
+    }
+}
+```
+
