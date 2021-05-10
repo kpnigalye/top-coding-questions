@@ -157,3 +157,18 @@ public class Solution {
     }
 }
 ```
+7. Power of Two
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/power-of-two/)
+
+```csharp
+public class Solution {
+    public bool IsPowerOfTwo(int n) {
+      long num = 1;
+      while(num < n) {
+        num *= 2;
+      }
+      
+      return n == num;
+    }
+}
+```
