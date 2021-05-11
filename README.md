@@ -294,3 +294,18 @@ public class Solution {
     }
 }
 ```
+14. Lowest Common Ancestor 
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
+```csharp
+public class Solution {
+    public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(p.val < root.val && q.val < root.val) {
+          return LowestCommonAncestor(root.left, p, q);
+        } else if (p.val > root.val && q.val > root.val) {
+          return LowestCommonAncestor(root.right, p, q); 
+        } else {
+          return root;
+        }
+    }
+}
+```
