@@ -309,3 +309,32 @@ public class Solution {
     }
 }
 ```
+15. Jewels and Stones
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/jewels-and-stones/)
+- 
+```csharp
+public class Solution {
+    public int NumJewelsInStones(string jewels, string stones) {
+      if(stones.Length == 0 || stones == null) return 0;
+      
+      Dictionary<char, int> dict = new Dictionary<char, int>();
+      int result = 0;
+      
+      foreach(char stone in stones) {
+        if(dict.ContainsKey(stone)) {
+          dict[stone] += 1;
+        } else {
+          dict[stone] = 1;
+        }
+      }
+      
+      foreach(char jewel in jewels) {
+        if(dict.ContainsKey(jewel)) {
+          result += dict[jewel];
+        }
+      }
+      
+      return result;
+    }
+}
+```
