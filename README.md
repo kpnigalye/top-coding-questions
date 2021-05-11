@@ -249,3 +249,30 @@ public class Solution {
     }
 }
 ```
+
+12. Remove Element
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/remove-element/)
+```csharp
+public class Solution {
+    public int RemoveElement(int[] nums, int val) {
+      int start = 0, end = nums.Length -1;
+      int count = 0;
+      while(start <= end) {
+        if(nums[end] == val) {
+          end --;
+          count++;
+        }
+        else if(nums[start] == val) {
+          nums[start] = nums[end];
+          nums[end] = val;
+          start++;
+          end--;
+          count++;
+        } else {
+          start++;
+        }
+      }
+      return nums.Length - count;
+    }
+}
+```
