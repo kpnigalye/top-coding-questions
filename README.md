@@ -311,7 +311,6 @@ public class Solution {
 ```
 15. Jewels and Stones
 - Here is the link to the problem on [leetcode](https://leetcode.com/problems/jewels-and-stones/)
-- 
 ```csharp
 public class Solution {
     public int NumJewelsInStones(string jewels, string stones) {
@@ -335,6 +334,44 @@ public class Solution {
       }
       
       return result;
+    }
+}
+```
+
+16. Container with Most Water
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/container-with-most-water/)
+```csharp
+/*
+  O(n^2) solution 
+  
+  public class Solution {
+      public int MaxArea(int[] height) {
+        int max = Int32.MinValue;
+        for(int i=0; i < height.Length; i++) {
+          for(int j=i+1; j < height.Length; j++) {
+            int area = Math.Min(height[i], height[j]) * (j-i);
+            max = Math.Max(area, max);
+          }  
+        }
+        return max;
+      }
+  }
+*/
+
+public class Solution {
+    public int MaxArea(int[] height) {
+      int max = Int32.MinValue;
+      int start = 0, end = height.Length -1;
+      while(start < end) {
+        int min = Math.Min(height[start], height[end]);
+        max = Math.Max(max, min * (end - start));
+        if(height[start] < height[end]) {
+          start++;
+        } else {
+          end--;
+        }
+      }
+      return max;
     }
 }
 ```
