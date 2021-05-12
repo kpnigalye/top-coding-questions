@@ -375,3 +375,33 @@ public class Solution {
     }
 }
 ```
+17. Reverse a Linked List
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/reverse-linked-list/)
+```csharp
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     public int val;
+ *     public ListNode next;
+ *     public ListNode(int val=0, ListNode next=null) {
+ *         this.val = val;
+ *         this.next = next;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode ReverseList(ListNode head) {
+      if(head == null) return head;
+      
+      ListNode temp, prev = null;
+      ListNode current = head;
+      while(current != null) {
+        temp = current.next;
+        current.next = prev;
+        prev = current;
+        current = temp;
+      }
+      return prev;
+    }
+}
+```
