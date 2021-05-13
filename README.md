@@ -405,3 +405,25 @@ public class Solution {
     }
 }
 ```
+
+18. Unique Email Addresses
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/unique-email-addresses/)
+```csharp
+public class Solution {
+    public int NumUniqueEmails(string[] emails) {
+      Dictionary<string, int> uniqueEmailIds = new Dictionary<string, int>();
+      
+      foreach(string email in emails) {
+        string[] parts = email.Split("@");
+        string local = parts[0].Split("+")[0].Replace(".", "");
+        string revisedEmail = string.Concat(local, "@", parts[1]);
+        
+        if(!uniqueEmailIds.ContainsKey(revisedEmail)) {
+          uniqueEmailIds[revisedEmail] = 1;
+        }
+      }
+
+      return uniqueEmailIds.Keys.Count;
+    }
+}
+```
