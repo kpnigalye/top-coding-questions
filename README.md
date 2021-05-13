@@ -427,3 +427,46 @@ public class Solution {
     }
 }
 ```
+
+19. K Closest Points to Origin
+- Here is the link to the problem on [leetcode](https://leetcode.com/problems/k-closest-points-to-origin/)
+```csharp
+public class Solution {
+  public double GetDistanceFromOrigin(int[] point) {
+    return Math.Sqrt(Math.Pow(point[0], 2) + Math.Pow(point[1], 2));
+  } 
+  
+  public int[][] KClosest(int[][] points, int k) {
+    SortedList<double, int[]> distances = new SortedList<double, int[]>();
+    int[][] result = new int[k][];
+
+    foreach(int[] point in points) {
+      double key = 0;  
+      double distance = GetDistanceFromOrigin(point);
+      
+      if(!distances.ContainsKey(distance)) {
+        key = distance;
+      } else {
+        if(distances[distance][0] != point[0] 
+           && distances[distance][1] != point[1]) 
+        {
+          key = distance * -1; 
+       }
+      }
+      
+      if(key != 0) {
+        distances.Add(
+          key, 
+          point
+        );
+      }
+    }
+
+    for(int i = 0; i< k; i++) {
+      result[i] = distances.Values[i];
+    }
+
+    return result;
+  }
+}
+```
